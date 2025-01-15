@@ -16,6 +16,7 @@ namespace ConsoleApp3
         private string birthday;
         private string adress;
         private string phone;
+        private int average_mark;
 
         // сеттеры
         public void SetSurname(string surname)
@@ -46,6 +47,15 @@ namespace ConsoleApp3
         public void SetPhone(string phone)
         {
             this.phone = phone;
+        }
+
+        public void SetAverageMark(int average_mark)
+        {
+            this.average_mark = average_mark;
+            if (average_mark > 12)
+            {
+                throw new Exception("Оценка должна быть в диапазоне от 0 до 12");
+            }
         }
 
         // геттеры
@@ -79,7 +89,25 @@ namespace ConsoleApp3
             return phone;
         }
 
-        // конструктор
+        public int GetAverageMark()
+        {
+            return average_mark;
+        }
+
+        public void SetFullName(string surname, string name, string patronymic, int average_mark)
+        {
+            SetSurname(surname);
+            SetName(name);
+            SetPatronymic(patronymic);
+            SetAverageMark(average_mark);
+        }
+
+        public string GetFullName()
+        {
+            return $"{surname} {name} {patronymic} {average_mark}";
+        }
+
+        // конструкторы
         public Student(string surname, string name, string patronymic, string birhday, string adress, string phone)
         {
             SetSurname(surname);
@@ -103,17 +131,6 @@ namespace ConsoleApp3
             $"Дата рождения: {birthday}\n" +
             $"Домащний адрес: {adress}\n" +
             $"Phone: {phone}";
-        }
-
-        public void Print()
-        {
-            Console.WriteLine("Информация о студенте:");
-            Console.WriteLine($"Фамилия: {GetSurname()}");
-            Console.WriteLine($"Имя: {GetName()}");
-            Console.WriteLine($"Отчество: {GetPatronymic()}");
-            Console.WriteLine($"Дата рождения: {GetBirthday()}");
-            Console.WriteLine($"Адрес: {GetAdress()}");
-            Console.WriteLine($"Телефон: {GetPhone()}");
         }
     }
 }

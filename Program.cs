@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            // Student
+            // ===== Student =====
             Student student = new Student();
             student.SetSurname("Овчаренко");
-            student.SetName("Максин");
+            student.SetName("Максим");
             student.SetPatronymic("Сергеевич");
             student.SetBirthday("02.01.2006");
             student.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
@@ -49,6 +49,35 @@
             {
                 Console.WriteLine(cw);
             }
+
+            // ===== Group (with class Student) =====
+            Group group = new Group();
+            group.SetGroup("ПИ-1");
+            group.SetSpeciality("Прикладная информатика");
+            group.SetNumberCourse("1");
+
+            Student student1 = new Student();
+            student1.SetFullName("Кузьменко", "Максим", "Александрович", 12);
+            group.AddStudent(student1);
+            //group.TransferStudent(student1);
+
+            Student student2 = new Student();
+            student2.SetFullName("Попова", "Евгения", "Викторивна", 5);
+            group.AddStudent(student2);
+
+            Student student3 = new Student();
+            student3.SetFullName("Сытник", "Анатолий", "Владимирович", 7);
+            group.AddStudent(student3);
+            //group.RemoveStudent(student3);
+
+            //group.ExpulsionStudent();
+            //group.FailingStudent();
+
+            //group.EditGroup();
+            //group.EditSpeciality();
+            //group.EditNumberCourse();
+
+            group.ShowGroup();
         }
     }
 }
