@@ -8,10 +8,17 @@ namespace ConsoleApp3
 {
     internal class Group
     {
+        // поля класса
         private List<Student> students;
-        private string group;
+        private string group_name;
         private string speciality;
         private string number_course;
+
+        // свойства 
+        public List<Student> Students { get; set; }
+        public string GroupName { get; set; }
+        public string Speciality { get; set; }
+        public int NumberCourse { get; set; }
 
         public Group()
         {
@@ -19,25 +26,55 @@ namespace ConsoleApp3
         }
         
         // сеттеры
-        public void SetGroup(string group)
+        public void SetGroup(string group_name)
         {
-            this.group = group;
+            this.group_name = group_name;
         }
 
         public void SetSpeciality(string speciality)
         {
             this.speciality = speciality;
+            try
+            {
+                if (speciality == "" || speciality == null || speciality.StartsWith(" ") || speciality.EndsWith(" "))
+                {
+                    throw new Exception("Поле специальности не может быть пустым");
+                }
+                else if (speciality.Any(char.IsDigit))
+                {
+                    throw new Exception("Поле специальности не может состоять из цифр");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetNumberCourse(string number_course)
         {
             this.number_course = number_course;
+            try
+            {
+                if (number_course == "" || number_course == null || number_course.StartsWith(" ") || number_course.EndsWith(" "))
+                {
+                    throw new Exception("Поле специальности не может быть пустым");
+                }
+                else if (speciality.Any(char.IsDigit))
+                {
+                    throw new Exception("Поле специальности не может состоять из цифр");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // геттеры
         public string GetGroup()
         {
-            return group;
+            return group_name;
         }
 
         public string GetSpeciality()
@@ -61,7 +98,7 @@ namespace ConsoleApp3
         public void ShowGroup()
         {
             int number;
-            Console.WriteLine($"\nГруппа: {group}, Специализация: {speciality}, Курс: {number_course}");
+            Console.WriteLine($"\nГруппа: {group_name}, Специализация: {speciality}, Курс: {number_course}");
             Console.WriteLine("\nСписок студентов:");
             foreach (var student in students)
             {

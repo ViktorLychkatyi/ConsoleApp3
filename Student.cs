@@ -18,35 +18,130 @@ namespace ConsoleApp3
         private string phone;
         private int average_mark;
 
+        // свойства 
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public string Birthday { get; set; }
+        public string Adress { get; set; }
+        public string Phone { get; set; }
+        public int AverageMark { get; set; }
+
         // сеттеры
         public void SetSurname(string surname)
         {
             this.surname = surname;
+            try
+            {
+                if (surname == "" || surname == null || surname.StartsWith(" ") || surname.EndsWith(" "))
+                {
+                    throw new Exception("Поле фамилии не может быть пустым");
+                }
+                else if (surname.Any(char.IsDigit))
+                {
+                    throw new Exception("Поле фамилии не может состоять из цифр");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetName(string name)
         {
             this.name = name;
+            try
+            {
+                if (name == "" || name == null || name.StartsWith(" ") || name.EndsWith(" "))
+                {
+                    throw new Exception("Поле имени не может быть пустым");
+                }
+                else if (name.Any(char.IsDigit))
+                {
+                    throw new Exception("Поле имени не может состоять из цифр");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetPatronymic(string patronymic)
         {
             this.patronymic = patronymic;
+            try
+            {
+                if (patronymic == "" || patronymic == null || patronymic.StartsWith(" ") || patronymic.EndsWith(" "))
+                {
+                    throw new Exception("Поле отчества не может быть пустым");
+                }
+                else if (patronymic.Any(char.IsDigit))
+                {
+                    throw new Exception("Поле отчества не может состоять из цифр");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetBirthday(string birthday)
         {
             this.birthday = birthday;
+            try
+            {
+                if (birthday == "" || birthday == null || birthday.StartsWith(" ") || birthday.EndsWith(" "))
+                {
+                    throw new Exception("Поле даты рождения не может быть пустым");
+                }
+                else if (birthday.Any(char.IsLetter))
+                {
+                    throw new Exception("Поле даты рождения не может состоять из букв");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetAdress(string adress)
         {
             this.adress = adress;
+            try
+            {
+                if (adress == "" || adress == null || adress.StartsWith(" ") || adress.EndsWith(" "))
+                {
+                    throw new Exception("Поле адрес проживания не может быть пустым");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetPhone(string phone)
         {
             this.phone = phone;
+            try
+            {
+                if (phone == "" || phone == null || phone.StartsWith(" ") || phone.EndsWith(" "))
+                {
+                    throw new Exception("Поле номер телефона не может быть пустым");
+                }
+                else if (phone.Any(char.IsLetter))
+                {
+                    throw new Exception("Поле номер телефона не может состоять из букв");
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void SetAverageMark(int average_mark)

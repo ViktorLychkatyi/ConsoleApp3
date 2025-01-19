@@ -6,10 +6,11 @@
         {
             // ===== Student =====
             Student student = new Student();
-            student.SetSurname("Овчаренко");
+            //student.Name = "Максим";
+            student.SetSurname("Кузьменко");
             student.SetName("Максим");
             student.SetPatronymic("Сергеевич");
-            student.SetBirthday("02.01.2006");
+            student.SetBirthday("17.02.2000");
             student.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
             student.SetPhone("380 75 345 689");
             Console.WriteLine(student);
