@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,7 +17,10 @@ namespace ConsoleApp3
         private string birthday;
         private string adress;
         private string phone;
-        private int average_mark;
+
+        public List<int> zachet;
+        public List<int> exams;
+        public List<int> courses_works;
 
         // свойства 
         public string Surname { get; set; }
@@ -144,15 +148,6 @@ namespace ConsoleApp3
             }
         }
 
-        public void SetAverageMark(int average_mark)
-        {
-            this.average_mark = average_mark;
-            if (average_mark > 12)
-            {
-                throw new Exception("Оценка должна быть в диапазоне от 0 до 12");
-            }
-        }
-
         // геттеры
         public string GetSurname()
         {
@@ -184,22 +179,16 @@ namespace ConsoleApp3
             return phone;
         }
 
-        public int GetAverageMark()
-        {
-            return average_mark;
-        }
-
-        public void SetFullName(string surname, string name, string patronymic, int average_mark)
+        public void SetFullName(string surname, string name, string patronymic)
         {
             SetSurname(surname);
             SetName(name);
             SetPatronymic(patronymic);
-            SetAverageMark(average_mark);
         }
 
         public string GetFullName()
         {
-            return $"{surname} {name} {patronymic} {average_mark}";
+            return $"{surname} {name} {patronymic}";
         }
 
         // конструкторы
@@ -219,13 +208,73 @@ namespace ConsoleApp3
 
         public override string ToString()
         {
-            return 
+            return
             $"Фамилия: {surname}\n" +
             $"Имя: {name}\n" +
             $"Отчество: {patronymic}\n" +
             $"Дата рождения: {birthday}\n" +
             $"Домащний адрес: {adress}\n" +
-            $"Phone: {phone}";
+            $"Телефонный номер: {phone}";
         }
+
+        // подсчеты средних оценок
+        public double AverageZachet(Student student)
+        {
+            double average_zachet = student.zachet.Average();
+            SetFullName(GetSurname(), GetName(), GetPatronymic());
+            Console.WriteLine(GetFullName());
+            Console.WriteLine("Зачеты. Оценки: ");
+            foreach (int z in student.zachet)
+            {
+                Console.WriteLine(z);
+            }
+            Console.WriteLine("Зачеты. Средний балл: " + average_zachet + "\n");
+            return average_zachet;
+        }
+
+        public double AverageExams(Student student)
+        {
+            double average_exams = student.exams.Average();
+            SetFullName(GetSurname(), GetName(), GetPatronymic());
+            Console.WriteLine(GetFullName());
+            Console.WriteLine("Экзамены. Оценки: ");
+            foreach (int e in student.exams)
+            {
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("Экзамены. Средний балл: " + average_exams + "\n");
+            return average_exams;
+        }
+
+        public double AverageCoursesWorks(Student student)
+        {
+            double average_courses_works = student.courses_works.Average();
+            SetFullName(GetSurname(), GetName(), GetPatronymic());
+            Console.WriteLine(GetFullName());
+            Console.WriteLine("Экзамены. Оценки: ");
+            foreach (int c in student.courses_works)
+            {
+                Console.WriteLine(c);
+            }
+            Console.WriteLine("Курсовые работы. Средний балл: " + average_courses_works + "\n");
+            return average_courses_works;
+        }
+
+        public double ResultAverageMark(Student student)
+        {
+            double result_average_mark = (AverageZachet(student) + AverageExams(student) + AverageCoursesWorks(student)) / 3;
+            Console.WriteLine("\nОбщий средний балл за предмет: " + result_average_mark + "\n");
+            return result_average_mark;
+        }
+
+
+        // перегрузка операции
+
+        //public static Student operator == (Student student)
+        //{
+        //    if (student.SetAverageMark(5) == student.SetAverageMark(12))
+        //    {
+        //        return student;
+        //    }
     }
 }

@@ -9,10 +9,10 @@ namespace ConsoleApp3
     internal class Group
     {
         // поля класса
-        private List<Student> students;
         private string group_name;
         private string speciality;
         private string number_course;
+        private List<Student> students;
 
         // свойства 
         public List<Student> Students { get; set; }
@@ -87,7 +87,7 @@ namespace ConsoleApp3
             int sum = 0;
             foreach (var student in students)
             {
-                sum += student.GetAverageMark();
+                //sum += student.GetAverageMark();
             }
             return sum / students.Count;
         }
@@ -132,7 +132,6 @@ namespace ConsoleApp3
             student.SetSurname("Ильгова");
             student.SetName("Анна");
             student.SetPatronymic("Владимировна");
-            student.SetAverageMark(10);
         }
 
         public void EditGroup()
@@ -150,48 +149,52 @@ namespace ConsoleApp3
             SetNumberCourse("6");
         }
 
-        public void ExpulsionStudent()
-        {
-            for (int i = students.Count - 1; i >= 0; i--)
-            {
-                var student = students[i];
+        //public void ExpulsionStudent()
+        //{
+        //    for (int i = students.Count - 1; i >= 0; i--)
+        //    {
+        //        var student = students[i];
 
-                if (student.GetAverageMark() < 7)
-                {
-                    students.RemoveAt(i);
-                    Console.WriteLine($"Студент {student.GetFullName()} отчислен");
-                }
-                else if (student.GetAverageMark() > 12)
-                {
-                    Console.WriteLine($"Студент {student.GetFullName()} недопустимое значение");
-                }
-                else
-                {
-                    Console.WriteLine($"Студент {student.GetFullName()} остаётся в группе");
-                }
-            }
-        }
+        //        if (student.GetAverageMark() < 7)
+        //        {
+        //            students.RemoveAt(i);
+        //            Console.WriteLine($"Студент {student.GetFullName()} отчислен");
+        //        }
+        //        else if (student.GetAverageMark() > 12)
+        //        {
+        //            Console.WriteLine($"Студент {student.GetFullName()} недопустимое значение");
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine($"Студент {student.GetFullName()} остаётся в группе");
+        //        }
+        //    }
+        //}
 
-        public void FailingStudent()
-        {
-            int min_mark = int.MaxValue;
-            foreach (var student in students)
-            {
-                int average_mark = student.GetAverageMark();
-                if (average_mark < min_mark)
-                {
-                    min_mark = average_mark;
-                }
-            }
+        //public void FailingStudent()
+        //{
+        //    int min_mark = int.MaxValue;
+        //    foreach (var student in students)
+        //    {
+        //        int average_mark = student.GetAverageMark();
+        //        if (average_mark < min_mark)
+        //        {
+        //            min_mark = average_mark;
+        //        }
+        //    }
 
-            for (int i = students.Count - 1; i >= 0; i--)
-            {
-                if (students[i].GetAverageMark() == min_mark)
-                {
-                    Console.WriteLine($"Студент {students[i].GetFullName()} не успевающий и отчислен");
-                    students.RemoveAt(i);
-                }
-            }
-        }
+        //    for (int i = students.Count - 1; i >= 0; i--)
+        //    {
+        //        if (students[i].GetAverageMark() == min_mark)
+        //        {
+        //            Console.WriteLine($"Студент {students[i].GetFullName()} не успевающий и отчислен");
+        //            students.RemoveAt(i);
+        //        }
+        //    }
+        //}
+
+        // перегрузка операции
+        //public bool operation
+
     }
 }

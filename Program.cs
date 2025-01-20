@@ -12,44 +12,39 @@
             student.SetPatronymic("Сергеевич");
             student.SetBirthday("17.02.2000");
             student.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
-            student.SetPhone("380 75 345 689");
+            student.SetPhone("380 75 345 689\n");
             Console.WriteLine(student);
 
-            List<int> zachet = new List<int>();
-            zachet.Add(12);
-            zachet.Add(12);
-            zachet.Add(12);
-            zachet.Add(12);
+            //Student student2 = new Student();
+            ////student.Name = "Максим";
+            //student2.SetSurname("Попова");
+            //student2.SetName("Евгения");
+            //student2.SetPatronymic("Викторивна");
+            //student2.SetBirthday("17.02.2000");
+            //student2.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
+            //student2.SetPhone("380 75 345 689\n");
+            //Console.WriteLine(student2);
 
-            Console.WriteLine("\nЗачеты:");
-            foreach (int z in zachet)
-            {
-                Console.WriteLine(z);
-            }
+            student.zachet = new List<int>();
+            student.zachet.Add(8);
+            student.zachet.Add(11);
+            student.zachet.Add(12);
+            student.zachet.Add(8);
+            student.AverageZachet(student);
 
-            List<int> exams = new List<int>();
-            exams.Add(12);
-            exams.Add(12);
-            exams.Add(12);
-            exams.Add(12);
+            student.exams = new List<int>();
+            student.exams.Add(8);
+            student.exams.Add(11);
+            student.exams.Add(12);
+            student.exams.Add(8);
+            student.AverageExams(student);
 
-            Console.WriteLine("\nЭкзамены:");
-            foreach (int e in exams)
-            {
-                Console.WriteLine(e);
-            }
-
-            List<int> course_works = new List<int>();
-            course_works.Add(12);
-            course_works.Add(12);
-            course_works.Add(12);
-            course_works.Add(12);
-
-            Console.WriteLine("\nКурсовые работы:");
-            foreach (int cw in course_works)
-            {
-                Console.WriteLine(cw);
-            }
+            student.courses_works = new List<int>();
+            student.courses_works.Add(8);
+            student.courses_works.Add(11);
+            student.courses_works.Add(12);
+            student.courses_works.Add(8);
+            student.AverageCoursesWorks(student);
 
             // ===== Group (with class Student) =====
             Group group = new Group();
@@ -57,18 +52,16 @@
             group.SetSpeciality("Прикладная информатика");
             group.SetNumberCourse("1");
 
-            Student student1 = new Student();
-            student1.SetFullName("Кузьменко", "Максим", "Александрович", 12);
-            group.AddStudent(student1);
-            //group.TransferStudent(student1);
+            student.SetFullName(student.GetSurname(), student.GetName(), student.GetPatronymic());
+            group.AddStudent(student);
+            //group.TransferStudent(student);
 
-            Student student2 = new Student();
-            student2.SetFullName("Попова", "Евгения", "Викторивна", 5);
-            group.AddStudent(student2);
+            //student2.SetFullName(student2.GetSurname(), student2.GetName(), student2.GetPatronymic());
+            //group.AddStudent(student2);
 
-            Student student3 = new Student();
-            student3.SetFullName("Сытник", "Анатолий", "Владимирович", 7);
-            group.AddStudent(student3);
+            //Student student3 = new Student();
+            //student3.SetFullName("Сытник", "Анатолий", "Владимирович");
+            //group.AddStudent(student3);
             //group.RemoveStudent(student3);
 
             //group.ExpulsionStudent();
