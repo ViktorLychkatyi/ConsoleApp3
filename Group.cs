@@ -15,10 +15,39 @@ namespace ConsoleApp3
         private List<Student> students;
 
         // свойства 
-        public List<Student> Students { get; set; }
-        public string GroupName { get; set; }
-        public string Speciality { get; set; }
-        public int NumberCourse { get; set; }
+        public string GroupName
+        {
+            set
+            {
+                SetGroup(value);
+            }
+            get
+            {
+                return group_name;
+            }
+        }
+        public string Speciality
+        {
+            set
+            {
+                SetSpeciality(value);
+            }
+            get
+            {
+                return speciality;
+            }
+        }
+        public string NumberCourse
+        {
+            set
+            {
+                SetNumberCourse(value);
+            }
+            get
+            {
+                return number_course;
+            }
+        }
 
         public Group()
         {
@@ -149,49 +178,49 @@ namespace ConsoleApp3
             SetNumberCourse("6");
         }
 
-        //public void ExpulsionStudent()
-        //{
-        //    for (int i = students.Count - 1; i >= 0; i--)
-        //    {
-        //        var student = students[i];
+        public void ExpulsionStudent()
+        {
+            for (int i = students.Count - 1; i >= 0; i--)
+            {
+                var student = students[i];
 
-        //        if (student.GetAverageMark() < 7)
-        //        {
-        //            students.RemoveAt(i);
-        //            Console.WriteLine($"Студент {student.GetFullName()} отчислен");
-        //        }
-        //        else if (student.GetAverageMark() > 12)
-        //        {
-        //            Console.WriteLine($"Студент {student.GetFullName()} недопустимое значение");
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine($"Студент {student.GetFullName()} остаётся в группе");
-        //        }
-        //    }
-        //}
+                if (student.AverageCoursesWorks(student) < 7)
+                {
+                    students.RemoveAt(i);
+                    Console.WriteLine($"Студент {student.GetFullName()} отчислен");
+                }
+                else if (student.AverageCoursesWorks(student) > 12)
+                {
+                    Console.WriteLine($"Студент {student.GetFullName()} недопустимое значение");
+                }
+                else
+                {
+                    Console.WriteLine($"Студент {student.GetFullName()} остаётся в группе");
+                }
+            }
+        }
 
-        //public void FailingStudent()
-        //{
-        //    int min_mark = int.MaxValue;
-        //    foreach (var student in students)
-        //    {
-        //        int average_mark = student.GetAverageMark();
-        //        if (average_mark < min_mark)
-        //        {
-        //            min_mark = average_mark;
-        //        }
-        //    }
+        public void FailingStudent()
+        {
+            double min_mark = double.MaxValue;
+            foreach (var student in students)
+            {
+                double average_mark = student.AverageCoursesWorks(student);
+                if (average_mark < min_mark)
+                {
+                    min_mark = average_mark;
+                }
+            }
 
-        //    for (int i = students.Count - 1; i >= 0; i--)
-        //    {
-        //        if (students[i].GetAverageMark() == min_mark)
-        //        {
-        //            Console.WriteLine($"Студент {students[i].GetFullName()} не успевающий и отчислен");
-        //            students.RemoveAt(i);
-        //        }
-        //    }
-        //}
+            for (int i = students.Count - 1; i >= 0; i--)
+            {
+                if (students[i].AverageCoursesWorks(students[i]) == min_mark)
+                {
+                    Console.WriteLine($"Студент {students[i].GetFullName()} не успевающий и отчислен");
+                    students.RemoveAt(i);
+                }
+            }
+        }
 
         // перегрузка операции
         //public bool operation

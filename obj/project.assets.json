@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Nina\\.nuget\\packages\\": {},
+    "C:\\Users\\Viktor\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\ConsoleApp3\\ConsoleApp3.csproj",
+      "projectUniqueName": "C:\\Users\\Viktor\\Desktop\\ConsoleApp3\\ConsoleApp3.csproj",
       "projectName": "ConsoleApp3",
-      "projectPath": "D:\\Desktop\\ConsoleApp3\\ConsoleApp3.csproj",
-      "packagesPath": "C:\\Users\\Nina\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\ConsoleApp3\\obj\\",
+      "projectPath": "C:\\Users\\Viktor\\Desktop\\ConsoleApp3\\ConsoleApp3.csproj",
+      "packagesPath": "C:\\Users\\Viktor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Viktor\\Desktop\\ConsoleApp3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Viktor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -27,23 +27,23 @@
 
             student.zachet = new List<int>();
             student.zachet.Add(8);
-            student.zachet.Add(11);
+            student.zachet.Add(10);
             student.zachet.Add(12);
-            student.zachet.Add(8);
+            student.zachet.Add(7);
             student.AverageZachet(student);
 
             student.exams = new List<int>();
+            student.exams.Add(6);
             student.exams.Add(8);
-            student.exams.Add(11);
-            student.exams.Add(12);
+            student.exams.Add(5);
             student.exams.Add(8);
             student.AverageExams(student);
 
             student.courses_works = new List<int>();
-            student.courses_works.Add(8);
             student.courses_works.Add(11);
+            student.courses_works.Add(10);
             student.courses_works.Add(12);
-            student.courses_works.Add(8);
+            student.courses_works.Add(11);
             student.AverageCoursesWorks(student);
 
             // ===== Group (with class Student) =====

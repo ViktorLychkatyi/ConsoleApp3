@@ -23,13 +23,72 @@ namespace ConsoleApp3
         public List<int> courses_works;
 
         // свойства 
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Birthday { get; set; }
-        public string Adress { get; set; }
-        public string Phone { get; set; }
-        public int AverageMark { get; set; }
+        public string Surname 
+        {
+            set
+            {
+                SetSurname(value);
+            }
+            get 
+            {
+                return surname; 
+            }
+        }
+        public string Name
+        {
+            set
+            {
+                SetName(value);
+            }
+            get
+            {
+                return name;
+            }
+        }
+        public string Patronymic
+        {
+            set
+            {
+                SetPatronymic(value);
+            }
+            get
+            {
+                return patronymic;
+            }
+        }
+        public string Birthday
+        {
+            set
+            {
+                SetBirthday(value);
+            }
+            get
+            {
+                return birthday;
+            }
+        }
+        public string Adress
+        {
+            set
+            {
+                SetAdress(value);
+            }
+            get
+            {
+                return adress;
+            }
+        }
+        public string Phone
+        {
+            set
+            {
+                SetPhone(value);
+            }
+            get
+            {
+                return phone;
+            }
+        }
 
         // сеттеры
         public void SetSurname(string surname)
