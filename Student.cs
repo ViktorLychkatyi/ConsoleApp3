@@ -22,16 +22,18 @@ namespace ConsoleApp3
         public List<int> exams;
         public List<int> courses_works;
 
+        private double result_average_mark;
+
         // свойства 
-        public string Surname 
+        public string Surname
         {
             set
             {
                 SetSurname(value);
             }
-            get 
+            get
             {
-                return surname; 
+                return surname;
             }
         }
         public string Name
@@ -207,6 +209,11 @@ namespace ConsoleApp3
             }
         }
 
+        public void SetResultAverageMark(double result_average_mark)
+        {
+            this.result_average_mark = result_average_mark;
+        }
+
         // геттеры
         public string GetSurname()
         {
@@ -236,6 +243,11 @@ namespace ConsoleApp3
         public string GetPhone()
         {
             return phone;
+        }
+
+        public double GetResultAverageMark()
+        {
+            return result_average_mark;
         }
 
         public void SetFullName(string surname, string name, string patronymic)
@@ -322,18 +334,44 @@ namespace ConsoleApp3
         public double ResultAverageMark(Student student)
         {
             double result_average_mark = (AverageZachet(student) + AverageExams(student) + AverageCoursesWorks(student)) / 3;
-            Console.WriteLine("\nОбщий средний балл за предмет: " + result_average_mark + "\n");
+            Console.WriteLine($"Общий средний балл студента {GetFullName()}: " + +result_average_mark + "\n");
             return result_average_mark;
         }
 
-
         // перегрузка операции
 
-        //public static Student operator == (Student student)
-        //{
-        //    if (student.SetAverageMark(5) == student.SetAverageMark(12))
-        //    {
-        //        return student;
-        //    }
+        public static bool operator >(Student student, double result_average_mark)
+        {
+            if (result_average_mark > 7)
+                throw new Exception(nameof(student));
+            return student.GetResultAverageMark() > result_average_mark;
+        }
+
+        public static bool operator <(Student student, double result_average_mark)
+        {
+            if (result_average_mark > 7)
+                throw new Exception(nameof(student));
+            return student.GetResultAverageMark() < result_average_mark;
+        }
+
+        public static bool operator >(Student student, Student student2)
+        {
+            return student.GetResultAverageMark() < student2.GetResultAverageMark();
+        }
+
+        public static bool operator <(Student student, Student student2)
+        {
+            return student.GetResultAverageMark() < student2.GetResultAverageMark();
+        }
+
+        public static bool operator ==(Student student, Student student2)
+        {
+            return student.GetResultAverageMark() == student2.GetResultAverageMark();
+        }
+
+        public static bool operator !=(Student student, Student student2)
+        {
+            return student.GetResultAverageMark() != student2.GetResultAverageMark();
+        }
     }
 }

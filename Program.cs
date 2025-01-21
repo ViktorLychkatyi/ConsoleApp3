@@ -6,7 +6,6 @@
         {
             // ===== Student =====
             Student student = new Student();
-            //student.Name = "Максим";
             student.SetSurname("Кузьменко");
             student.SetName("Максим");
             student.SetPatronymic("Сергеевич");
@@ -15,36 +14,61 @@
             student.SetPhone("380 75 345 689\n");
             Console.WriteLine(student);
 
-            //Student student2 = new Student();
-            ////student.Name = "Максим";
-            //student2.SetSurname("Попова");
-            //student2.SetName("Евгения");
-            //student2.SetPatronymic("Викторивна");
-            //student2.SetBirthday("17.02.2000");
-            //student2.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
-            //student2.SetPhone("380 75 345 689\n");
-            //Console.WriteLine(student2);
-
             student.zachet = new List<int>();
             student.zachet.Add(8);
             student.zachet.Add(10);
             student.zachet.Add(12);
             student.zachet.Add(7);
-            student.AverageZachet(student);
 
             student.exams = new List<int>();
             student.exams.Add(6);
             student.exams.Add(8);
             student.exams.Add(5);
             student.exams.Add(8);
-            student.AverageExams(student);
 
             student.courses_works = new List<int>();
             student.courses_works.Add(11);
             student.courses_works.Add(10);
             student.courses_works.Add(12);
             student.courses_works.Add(11);
-            student.AverageCoursesWorks(student);
+
+            //student.ResultAverageMark(student);
+            Console.WriteLine((student.ResultAverageMark(student) > 7) + "\n");
+
+            Student student2 = new Student();
+            student2.SetSurname("Попова");
+            student2.SetName("Евгения");
+            student2.SetPatronymic("Викторивна");
+            student2.SetBirthday("17.02.2000");
+            student2.SetAdress("г. Харьков, ул. Халтурина, д. 10, кв. 5");
+            student2.SetPhone("380 75 345 689\n");
+            Console.WriteLine(student2);
+
+            student2.zachet = new List<int>();
+            student2.zachet.Add(6);
+            student2.zachet.Add(2);
+            student2.zachet.Add(5);
+            student2.zachet.Add(3);
+
+            student2.exams = new List<int>();
+            student2.exams.Add(2);
+            student2.exams.Add(5);
+            student2.exams.Add(7);
+            student2.exams.Add(9);
+
+            student2.courses_works = new List<int>();
+            student2.courses_works.Add(7);
+            student2.courses_works.Add(2);
+            student2.courses_works.Add(5);
+            student2.courses_works.Add(10);
+
+            //student2.ResultAverageMark(student2);
+            Console.WriteLine((student2.ResultAverageMark(student2) > 7) + "\n");
+
+            Console.WriteLine(student > student2);
+            Console.WriteLine(student < student2);
+            Console.WriteLine(student == student2);
+            Console.WriteLine(student != student2);
 
             // ===== Group (with class Student) =====
             Group group = new Group();
