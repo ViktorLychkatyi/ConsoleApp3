@@ -32,8 +32,9 @@
             student.courses_works.Add(12);
             student.courses_works.Add(11);
 
-            //student.ResultAverageMark(student);
-            Console.WriteLine((student.ResultAverageMark(student) > 7) + "\n");
+            //student.result_average_work();
+            Console.WriteLine(student > student.min_mark);
+            Console.WriteLine("\n");
 
             Student student2 = new Student();
             student2.SetSurname("Попова");
@@ -62,8 +63,9 @@
             student2.courses_works.Add(5);
             student2.courses_works.Add(10);
 
-            //student2.ResultAverageMark(student2);
-            Console.WriteLine((student2.ResultAverageMark(student2) > 7) + "\n");
+            //student2.result_average_work();
+            Console.WriteLine(student2 > student.min_mark);
+            Console.WriteLine("\n");
 
             Console.WriteLine(student > student2);
             Console.WriteLine(student < student2);
