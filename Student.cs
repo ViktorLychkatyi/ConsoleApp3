@@ -21,7 +21,6 @@ namespace ConsoleApp3
         public List<int> zachet;
         public List<int> exams;
         public List<int> courses_works;
-
         public double min_mark = 7;
 
         // свойства 
@@ -328,7 +327,8 @@ namespace ConsoleApp3
             double avg_dz = courses_works.Average();
             return (avg_zachet + avg_exam + avg_dz) / 3;
         }
-
+        
+        // перегрузка операции
         public static bool operator <(Student student, double min_mark)
         {
             return student.ResultAverageMark() < min_mark;

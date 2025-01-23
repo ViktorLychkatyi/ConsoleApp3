@@ -12,7 +12,9 @@ namespace ConsoleApp3
         private string group_name;
         private string speciality;
         private string number_course;
-        private List<Student> students;
+
+        public List<Student> students = new List<Student>();
+        public int count = 0;
 
         // свойства 
         public string GroupName
@@ -48,12 +50,6 @@ namespace ConsoleApp3
                 return number_course;
             }
         }
-
-        public Group()
-        {
-            students = new List<Student>();
-        }
-        
         // сеттеры
         public void SetGroup(string group_name)
         {
@@ -128,6 +124,7 @@ namespace ConsoleApp3
         {
             int number;
             Console.WriteLine($"\nГруппа: {group_name}, Специализация: {speciality}, Курс: {number_course}");
+            Console.WriteLine($"\nКоличество студентов в группе: {students.Count}");
             Console.WriteLine("\nСписок студентов:");
             foreach (var student in students)
             {
@@ -135,6 +132,11 @@ namespace ConsoleApp3
                 Console.WriteLine(number + ". " + student.GetFullName());
             }
             students.Sort((a, b) => a.GetFullName().CompareTo(b.GetFullName()));
+        }
+
+        public int CountGroup()
+        {
+            return students.Count;
         }
 
         // действия с студентами и группой
@@ -223,9 +225,53 @@ namespace ConsoleApp3
         }
 
         // перегрузка операции
-        
+        public static bool operator <(Group group, int count)
+        {
+            return group.CountGroup() < count;
+        }
 
+        public static bool operator >(Group group, int count)
+        {
+            return group.CountGroup() > count;
+        }
 
+        public static bool operator <(Group group, Group group2)
+        {
+            return group.CountGroup() < group2.CountGroup();
+        }
 
+        public static bool operator >(Group group, Group group2)
+        {
+            return group.CountGroup() > group2.CountGroup();
+        }
+
+        public static bool operator ==(Group group, Group group2)
+        {
+            return group.CountGroup() == group2.CountGroup();
+        }
+
+        public static bool operator !=(Group group, Group group2)
+        {
+            return group.CountGroup() != group2.CountGroup();
+        }
+
+        public Student this[int index]
+        {
+            set
+            {
+                if (index >= 0 && index < students.Count)
+                {
+                    students[index] = value;
+                }
+                else
+                {
+                    throw new Exception("Индекс не действительный.");
+                }
+            }
+            get
+            {
+                return students[index];
+            }
+        }
     }
 }

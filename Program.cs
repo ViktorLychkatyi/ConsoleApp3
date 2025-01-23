@@ -86,6 +86,30 @@
 
             student.SetFullName(student.GetSurname(), student.GetName(), student.GetPatronymic());
             group.AddStudent(student);
+            group.ShowGroup();
+
+            Group group2 = new Group();
+            group2.SetGroup("ПИ-2");
+            group2.SetSpeciality("Прикладная информатика");
+            group2.SetNumberCourse("2");
+
+            student.SetFullName(student.GetSurname(), student.GetName(), student.GetPatronymic());
+            group2.AddStudent(student);
+
+            student2.SetFullName(student2.GetSurname(), student2.GetName(), student2.GetPatronymic());
+            group2.AddStudent(student2);
+            group2.ShowGroup();
+
+            Console.WriteLine("\n");
+            Console.WriteLine(group > group.count);
+            Console.WriteLine(group < group.count);
+
+            Console.WriteLine(group > group2);
+            Console.WriteLine(group < group2);
+            Console.WriteLine(group == group2);
+            Console.WriteLine(group != group2);
+            Console.WriteLine(group[0].GetFullName());
+            Console.WriteLine(group2[1].GetFullName());
 
             //Console.WriteLine(group);
 
@@ -105,8 +129,6 @@
             //group.EditGroup();
             //group.EditSpeciality();
             //group.EditNumberCourse();
-
-            group.ShowGroup();
         }
     }
 }
