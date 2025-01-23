@@ -323,8 +323,10 @@ namespace ConsoleApp3
 
         public double ResultAverageMark()
         {
-            double result_average_work = (AverageZachet(this) + AverageExams(this) + AverageCoursesWorks(this)) / 3;
-            return result_average_work;
+            double avg_zachet = zachet.Average();
+            double avg_exam = exams.Average();
+            double avg_dz = courses_works.Average();
+            return (avg_zachet + avg_exam + avg_dz) / 3;
         }
 
         public static bool operator <(Student student, double min_mark)

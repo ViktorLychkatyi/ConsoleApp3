@@ -223,7 +223,9 @@ namespace ConsoleApp3
         }
 
         // перегрузка операции
-        //public bool operation
+        
+
+
 
     }
 }

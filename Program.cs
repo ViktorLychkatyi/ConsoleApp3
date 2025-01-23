@@ -19,18 +19,21 @@
             student.zachet.Add(10);
             student.zachet.Add(12);
             student.zachet.Add(7);
+            student.AverageZachet(student);
 
             student.exams = new List<int>();
             student.exams.Add(6);
             student.exams.Add(8);
             student.exams.Add(5);
             student.exams.Add(8);
+            student.AverageExams(student);
 
             student.courses_works = new List<int>();
             student.courses_works.Add(11);
             student.courses_works.Add(10);
             student.courses_works.Add(12);
             student.courses_works.Add(11);
+            student.AverageCoursesWorks(student);
 
             //student.result_average_work();
             Console.WriteLine(student > student.min_mark);
@@ -50,18 +53,21 @@
             student2.zachet.Add(2);
             student2.zachet.Add(5);
             student2.zachet.Add(3);
+            student2.AverageZachet(student2);
 
             student2.exams = new List<int>();
             student2.exams.Add(2);
             student2.exams.Add(5);
             student2.exams.Add(7);
             student2.exams.Add(9);
+            student2.AverageExams(student2);
 
             student2.courses_works = new List<int>();
             student2.courses_works.Add(7);
             student2.courses_works.Add(2);
             student2.courses_works.Add(5);
             student2.courses_works.Add(10);
+            student2.AverageCoursesWorks(student2);
 
             //student2.result_average_work();
             Console.WriteLine(student2 > student.min_mark);
@@ -80,6 +86,9 @@
 
             student.SetFullName(student.GetSurname(), student.GetName(), student.GetPatronymic());
             group.AddStudent(student);
+
+            //Console.WriteLine(group);
+
             //group.TransferStudent(student);
 
             //student2.SetFullName(student2.GetSurname(), student2.GetName(), student2.GetPatronymic());
